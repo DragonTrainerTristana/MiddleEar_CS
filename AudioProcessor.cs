@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 [System.Serializable]
-public class AudioSettings
+public class AudioProcessorSettings
 {
     [Header("Input Settings")]
     public bool useMicrophoneInput = true;
@@ -44,7 +44,7 @@ public class AudioAnalysis
 public class AudioProcessor : MonoBehaviour
 {
     [Header("Settings")]
-    public AudioSettings settings;
+    public AudioProcessorSettings settings;
     
     [Header("Analysis Results")]
     public AudioAnalysis analysis;
@@ -86,7 +86,7 @@ public class AudioProcessor : MonoBehaviour
         }
         
         // Initialize settings
-        toneSampleRate = AudioSettings.outputSampleRate;
+        toneSampleRate = UnityEngine.AudioSettings.outputSampleRate;
         
         // Initialize buffers
         audioBuffer = new float[settings.bufferSize];
@@ -99,7 +99,7 @@ public class AudioProcessor : MonoBehaviour
         // Setup microphone if available
         SetupMicrophone();
         
-        Debug.Log($"AudioProcessor initialized - Sample Rate: {AudioSettings.outputSampleRate}Hz");
+        Debug.Log($"AudioProcessor initialized - Sample Rate: {UnityEngine.AudioSettings.outputSampleRate}Hz");
     }
     
     void SetupMicrophone()
@@ -315,7 +315,7 @@ public class AudioProcessor : MonoBehaviour
         }
         
         // Convert bin index to frequency
-        float frequencyPerBin = (float)AudioSettings.outputSampleRate / 2f / analysis.spectrumData.Length;
+        float frequencyPerBin = (float)UnityEngine.AudioSettings.outputSampleRate / 2f / analysis.spectrumData.Length;
         return maxIndex * frequencyPerBin;
     }
     
@@ -323,7 +323,7 @@ public class AudioProcessor : MonoBehaviour
     {
         if (analysis.spectrumData == null) return;
         
-        int sampleRate = AudioSettings.outputSampleRate;
+        int sampleRate = UnityEngine.AudioSettings.outputSampleRate;
         int spectrumSize = analysis.spectrumData.Length;
         
         // Calculate frequency per bin
@@ -433,11 +433,11 @@ public class AudioProcessor : MonoBehaviour
     void OnGUI()
     {
         if (!showDebugGUI || !Application.isEditor) return;
-        
+
         GUILayout.BeginArea(new Rect(Screen.width - 300, 10, 290, 400));
         GUILayout.BeginVertical("box");
-        
-        GUILayout.Label("Audio Processor Debug", EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).label);
+
+        GUILayout.Label("Audio Processor Debug");
         
         GUILayout.Space(10);
         GUILayout.Label($"Processing: {isProcessing}");

@@ -118,8 +118,8 @@ public class TympanicMembrane : MonoBehaviour
         
         // Configure rigidbody
         rb.mass = physics.mass;
-        rb.drag = physics.damping;
-        rb.angularDrag = physics.damping;
+        rb.linearDamping = physics.damping;
+        rb.angularDamping = physics.damping;
         rb.useGravity = false;
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         

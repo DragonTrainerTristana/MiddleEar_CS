@@ -126,8 +126,8 @@ public class OssicleChain : MonoBehaviour
             if (malleusRb == null) malleusRb = malleus.AddComponent<Rigidbody>();
             
             malleusRb.mass = malleusData.mass;
-            malleusRb.drag = malleusData.damping * overallDamping;
-            malleusRb.angularDrag = malleusData.damping * overallDamping;
+            malleusRb.linearDamping = malleusData.damping * overallDamping;
+            malleusRb.angularDamping = malleusData.damping * overallDamping;
             malleusRb.useGravity = false;
             
             // 특정 축만 회전하도록 제한
@@ -145,8 +145,8 @@ public class OssicleChain : MonoBehaviour
             if (incusRb == null) incusRb = incus.AddComponent<Rigidbody>();
             
             incusRb.mass = incusData.mass;
-            incusRb.drag = incusData.damping * overallDamping;
-            incusRb.angularDrag = incusData.damping * overallDamping;
+            incusRb.linearDamping = incusData.damping * overallDamping;
+            incusRb.angularDamping = incusData.damping * overallDamping;
             incusRb.useGravity = false;
             
             incusRb.constraints = RigidbodyConstraints.FreezePositionX | 
@@ -163,8 +163,8 @@ public class OssicleChain : MonoBehaviour
             if (stapesRb == null) stapesRb = stapes.AddComponent<Rigidbody>();
             
             stapesRb.mass = stapesData.mass;
-            stapesRb.drag = stapesData.damping * overallDamping;
-            stapesRb.angularDrag = stapesData.damping * overallDamping;
+            stapesRb.linearDamping = stapesData.damping * overallDamping;
+            stapesRb.angularDamping = stapesData.damping * overallDamping;
             stapesRb.useGravity = false;
             
             stapesRb.constraints = RigidbodyConstraints.FreezePositionX | 

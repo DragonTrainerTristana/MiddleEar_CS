@@ -191,7 +191,8 @@ public class MiddleEarExperiment : MonoBehaviour
         
         // Color based on vibration intensity
         Color lineColor = Color.Lerp(Color.blue, Color.red, currentSoundLevel);
-        components.vibrationPath.color = lineColor;
+        components.vibrationPath.startColor = lineColor;
+        components.vibrationPath.endColor = lineColor;
     }
     
     public void StartExperiment()

@@ -532,7 +532,7 @@ public class MeshPerforator : MonoBehaviour
         GUILayout.BeginArea(new Rect(10, Screen.height - 200, 400, 190));
         GUILayout.BeginVertical("box");
         
-        GUILayout.Label("Mesh Perforator Debug", EditorGUIUtility.GetBuiltinSkin(EditorSkin.Inspector).label);
+        GUILayout.Label("Mesh Perforator Debug");
         
         GUILayout.Space(5);
         GUILayout.Label($"Perforations: {perforations.Count} / {settings.maxPerforations}");

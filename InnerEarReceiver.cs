@@ -163,7 +163,8 @@ public class InnerEarReceiver : MonoBehaviour
         if (frequencyResponse != null)
         {
             frequencyResponse.positionCount = FREQUENCY_BANDS;
-            frequencyResponse.color = normalColor;
+            frequencyResponse.startColor = normalColor;
+            frequencyResponse.endColor = normalColor;
             frequencyResponse.startWidth = 0.001f;
             frequencyResponse.endWidth = 0.001f;
         }
@@ -430,12 +431,15 @@ public class InnerEarReceiver : MonoBehaviour
         
         // Color based on overall activation
         float maxActivation = cochlearResponse.currentActivation.Max();
+        Color responseColor;
         if (maxActivation > 0.8f)
-            frequencyResponse.color = dangerColor;
+            responseColor = dangerColor;
         else if (maxActivation > 0.5f)
-            frequencyResponse.color = warningColor;
+            responseColor = warningColor;
         else
-            frequencyResponse.color = normalColor;
+            responseColor = normalColor;
+        frequencyResponse.startColor = responseColor;
+        frequencyResponse.endColor = responseColor;
     }
     
     // Public API methods
