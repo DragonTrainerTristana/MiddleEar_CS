@@ -3,7 +3,11 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(findstr:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "WebSearch",
+      "Bash(python analyze_simulation.py:*)",
+      "Bash(explorer \"C:\\Users\\sengh\\OneDrive\\Desktop\\Github\\MyUnity\\MiddleEarSimulator\\Assets\\Analysis_Results\")",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []
